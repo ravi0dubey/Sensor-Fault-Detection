@@ -1,0 +1,1 @@
+# It will store all the exceptions during project execution.

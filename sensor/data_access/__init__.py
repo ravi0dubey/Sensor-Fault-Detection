@@ -1,0 +1,1 @@
+# Connection to databases used in the project and then generate a csv file which will be stored in data_access folder
