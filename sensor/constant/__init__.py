@@ -1,0 +1,1 @@
+# All harcoded variables, used in the program will be declared over here
