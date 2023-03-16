@@ -12,3 +12,7 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 
 ## Training Pipeline
 ![image](https://user-images.githubusercontent.com/38419795/225675745-8769b097-81e3-4629-94b9-ac7012e10305.png)
+
+##Data Ingestion pipeline
+![image](https://user-images.githubusercontent.com/38419795/225761627-e7bb0f6f-724d-4b94-a181-06136365932d.png)
+
