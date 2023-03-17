@@ -1,2 +1,3 @@
 pymongo[srv]==4.2.0 # since we have srv in mongodb url so we have added it over here
 -e . #  This will search setup.py file and from there read find_packages() this will help project folder(sendor folder) to be interpreted by python interpreter.
+from-root==1.0.2

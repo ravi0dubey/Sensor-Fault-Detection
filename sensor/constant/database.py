@@ -1,2 +1,2 @@
 DATABASE_NAME= "Sensor_DB"
-# DATABASE_NAME= "raviinfo"
+COLLECTION_NAME= "sensor1"
