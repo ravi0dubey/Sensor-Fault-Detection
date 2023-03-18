@@ -22,8 +22,6 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 ![image](https://user-images.githubusercontent.com/38419795/226071961-d9678667-cf9e-4410-a9d4-6a4293f4ae1e.png)
 
 ## Approach while doing the coding
-![image](https://user-images.githubusercontent.com/38419795/226121290-93132564-0404-4093-adcc-feccbb87666b.png)
-
 ![image](https://user-images.githubusercontent.com/38419795/226114307-71505cd5-8bb4-44fb-b0e1-1e28a5b045ec.png)
 1. Define all constants used which will be used under constants folder
 2. In Entity folder we declare configuration and artifact of the component
@@ -31,6 +29,7 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 4. Components like data ingestion, data validation etc. will be declared which will be used by pipeline
 
 ## Data Validation pipeline
+![image](https://user-images.githubusercontent.com/38419795/226121290-93132564-0404-4093-adcc-feccbb87666b.png)
 ![image](https://user-images.githubusercontent.com/38419795/226118592-44360d9b-fcaa-40e3-b4b5-936f7dcd760d.png)
 
 
