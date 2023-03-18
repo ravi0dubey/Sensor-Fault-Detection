@@ -47,7 +47,7 @@ class DataIngestion:
             os.makedirs(dir_path,exist_ok= True)
             train_set.to_csv(self.data_ingestion_config.training_file_path,index=False,header=True)
             test_set.to_csv(self.data_ingestion_config.testing_file_path,index=False,header=True)
-            logging.info("storing split of train and test data into train and test folder")
+            logging.info("storing split of train and data into train and test")
             logging.info("exiting split_data_as_train_test of DataIngestion class")
         except Exception as e:
             raise SensorException(e,sys)
