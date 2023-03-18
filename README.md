@@ -28,5 +28,9 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 3. Train Pipeline uses both configuration and artifact of the component
 4. Components like data ingestion, data validation etc. will be declared which will be used by pipeline
 
+## Data Validation pipeline
+![image](https://user-images.githubusercontent.com/38419795/226118592-44360d9b-fcaa-40e3-b4b5-936f7dcd760d.png)
+
+
 
 
