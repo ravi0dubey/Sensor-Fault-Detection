@@ -16,7 +16,8 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 
 ##Data Ingestion pipeline
 ![image](https://user-images.githubusercontent.com/38419795/225761627-e7bb0f6f-724d-4b94-a181-06136365932d.png)
-**Folder structure of Artifact which created on running Training Pipeline**\n
+**Folder structure of Artifact which created on running Training Pipeline** 
+\n
 ![image](https://user-images.githubusercontent.com/38419795/226071961-d9678667-cf9e-4410-a9d4-6a4293f4ae1e.png)
 
 
