@@ -29,7 +29,9 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 4. Components like data ingestion, data validation etc. will be declared which will be used by pipeline
 
 ## Data Validation pipeline
-![image](https://user-images.githubusercontent.com/38419795/226121290-93132564-0404-4093-adcc-feccbb87666b.png)
+![image](https://user-images.githubusercontent.com/38419795/226127381-6ddfd989-76e2-4087-86e8-c1cd0daa846b.png)
+
+
 ![image](https://user-images.githubusercontent.com/38419795/226118592-44360d9b-fcaa-40e3-b4b5-936f7dcd760d.png)
 
 
