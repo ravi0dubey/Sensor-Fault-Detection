@@ -23,7 +23,7 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 
 ## Approach while doing the coding
 ![image](https://user-images.githubusercontent.com/38419795/226114307-71505cd5-8bb4-44fb-b0e1-1e28a5b045ec.png)
-1. Define all constants used which are declared under constants folder
+1. Define all constants used which will be used under constants folder
 2. In Entity folder we declare configuration and artifact of the component
 3. Train Pipeline uses both configuration and artifact of the component
 4. Components like data ingestion, data validation etc. will be declared which will be used by pipeline
