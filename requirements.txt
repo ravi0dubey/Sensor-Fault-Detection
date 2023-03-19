@@ -3,4 +3,5 @@ from_root==1.0.2
 pandas
 numpy
 scikit-learn==1.1.3
+pyYAML
 -e . #  This will search setup.py file and from there read find_packages() this will help project folder(sendor folder) to be interpreted by python interpreter.
