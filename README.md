@@ -39,6 +39,10 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 ## Concept Drift Detection
 ![image](https://user-images.githubusercontent.com/38419795/226199601-27d1bf75-0556-4275-9c53-21bef8891f66.png)
 
+## Target Drift Detection
+![image](https://user-images.githubusercontent.com/38419795/226200126-e31f41e5-c791-43f7-8a57-4df7700a3cce.png)
+
+
 
 
 
