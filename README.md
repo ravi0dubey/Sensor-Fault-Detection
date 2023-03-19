@@ -31,6 +31,10 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 ## Data Validation pipeline
 ![image](https://user-images.githubusercontent.com/38419795/226127381-6ddfd989-76e2-4087-86e8-c1cd0daa846b.png)
 
+## Data Drift
+![image](https://user-images.githubusercontent.com/38419795/226199171-c98ae16f-5007-484e-b5f9-5b3d3e73cc92.png)
+
+
 
 ![image](https://user-images.githubusercontent.com/38419795/226118592-44360d9b-fcaa-40e3-b4b5-936f7dcd760d.png)
 
