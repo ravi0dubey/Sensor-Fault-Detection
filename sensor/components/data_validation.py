@@ -2,7 +2,7 @@ import sys,os
 from scipy import stats
 from sensor.exception import SensorException
 from sensor.logger import logging
-from sensor.utils.main_utils import read_yaml_file
+from sensor.utils.main_utils import read_yaml_file,write_yaml_file
 from sensor.constant.training_pipeline import SCHEMA_FILE_PATH
 from sensor.entity.artifact_entity import DataValidationArtifact,DataIngestionArtifact
 from sensor.entity.config_entity import TrainingPipelineConfig,  DataValidationConfig
@@ -55,15 +55,10 @@ class DataValidation:
         except Exception as e:
             raise SensorException(e,sys)
 
-
-    def detect_dataset_drift(self,):
-        pass
-    
-
-
         
-    def initiate_data_validation(self,base_dataframe: pd.DataFrame,current_dataframe: pd.DataFrame) -> DataValidationArtifact:
+    def detect_dataset_drift(self,base_dataframe: pd.DataFrame,current_dataframe: pd.DataFrame)-> bool:
         try:
+            drift_status = True
             report = {}
             for column in base_dataframe.columns:
                 d1 = base_dataframe[column]
@@ -73,11 +68,56 @@ class DataValidation:
                     is_found = False
                 else:
                     is_found = True
+                    drift_status = False
                     report.update({column:{"p_value": float(is_same_dist.pvalue),"drift_status":is_found}})
-            drift_report_file_path = self.data_validation_config.drift_report_file_path
+            
+            drift_report_file_path = self.data_validation_config.drift_report_file_path           
             # create directory
             dir_path = os.path.dirname(drift_report_file_path)
-            
-            return report
+            os.makedirs(dir_path,exist_ok= True)
+            write_yaml_file(file_path=drift_report_file_path,content=report)
+            return drift_status
+        except Exception as e:
+            raise SensorException(e,sys)  
+
+
+    def initiate_data_validation(self) -> DataValidationArtifact:
+        try:
+            error_message = " "
+            train_file_path= self.data_ingestion_artifact.trained_file_path
+            test_file_path= self.data_ingestion_artifact.test_file_path
+
+            # Reading data from train and test file location
+            train_dataframe = DataValidation.read_data(train_file_path)
+            test_dataframe = DataValidation.read_data(test_file_path)
+
+            # Validate number of columns
+            if not (self.validate_number_of_columns(dataframe== train_dataframe)):
+                error_message = "Train Dataframe does not have all columns\n"
+            if not(self.validate_number_of_columns(dataframe== test_dataframe)):
+                error_message = "Test Dataframe does not have all columns\n"           
+
+            # Validate numerical columns
+            if not (self.is_numerical_column_exist(dataframe== train_dataframe)):
+                error_message = "Train Dataframe does not have all numerical columns\n"
+            if not(self.is_numerical_column_exist(dataframe== test_dataframe)):
+                error_message = "Test Dataframe does not have all numerical columns\n"  
+            if len(error_message) > 0:
+                raise Exception(error_message)
+
+            # check data drift
+            drift_status = self.detect_dataset_drift(base_dataframe=train_dataframe,current_dataframe=test_dataframe)
+
+            #create data validation artifact
+            data_validation_artifact= DataValidationArtifact(
+                validation_status=self.drift_status,
+                valid_train_file_path=train_file_path,
+                valid_test_file_path=test_file_path,
+                invalid_train_file_path=self.data_validation_config.invalid_train_file_path,
+                invalid_test_file_path=self.data_validation_config.invalid_train_file_path,
+                drift_report_file_path=self.data_validation_config.drift_report_file_path,
+                  )
+            return data_validation_artifact
+
         except Exception as e:
             raise SensorException(e,sys)  
