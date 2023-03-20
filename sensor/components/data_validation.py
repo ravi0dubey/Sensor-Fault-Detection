@@ -22,8 +22,11 @@ class DataValidation:
     
     def validate_number_of_columns(self,dataframe: pd.DataFrame) -> bool:
         try:
-            number_of_columns = self._schema_config["columns"]
+            
+            number_of_columns = len(self._schema_config["columns"])
+            logging.info(f"number of columns is {number_of_columns}")
             number_of_df_columns= len(dataframe.columns)
+            logging.info(f"number of dataframe column is {number_of_df_columns}")
             if number_of_columns==number_of_df_columns:
                 return True
             else:
@@ -92,15 +95,19 @@ class DataValidation:
             test_dataframe = DataValidation.read_data(test_file_path)
 
             # Validate number of columns
-            if not (self.validate_number_of_columns(dataframe== train_dataframe)):
+            logging.info("Validating Train dataframe number of columns")
+            if not (self.validate_number_of_columns(dataframe= train_dataframe)):
                 error_message = "Train Dataframe does not have all columns\n"
-            if not(self.validate_number_of_columns(dataframe== test_dataframe)):
+            logging.info("Validating Test dataframe number of columns")
+            if not(self.validate_number_of_columns(dataframe= test_dataframe)):
                 error_message = "Test Dataframe does not have all columns\n"           
 
             # Validate numerical columns
-            if not (self.is_numerical_column_exist(dataframe== train_dataframe)):
+            logging.info("Validating Train dataframe numerical columns")
+            if not (self.is_numerical_column_exist(dataframe= train_dataframe)):
                 error_message = "Train Dataframe does not have all numerical columns\n"
-            if not(self.is_numerical_column_exist(dataframe== test_dataframe)):
+            logging.info("Validating Test dataframe numerical columns")
+            if not(self.is_numerical_column_exist(dataframe= test_dataframe)):
                 error_message = "Test Dataframe does not have all numerical columns\n"  
             if len(error_message) > 0:
                 raise Exception(error_message)
