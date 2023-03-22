@@ -1,8 +1,10 @@
 import yaml
+import dill
 import os,sys
 import numpy as np
 from sensor.exception import SensorException
 from sensor.logger import logging
+
 
 def read_yaml_file(file_path : str)->dict :
     try:
@@ -33,7 +35,7 @@ def save_numpy_array_data(file_path:str,array:np.array):
         dir_path = os.path.dirname(file_path)
         os.makedirs(os.path.dirname(dir_path),exist_ok=True)
         with open(file_path,"wb") as file:
-            np.save(file_obj,array)
+            np.save(file,array)
     except Exception as e:
         raise SensorException(e,sys)
 
@@ -56,6 +58,7 @@ def save_object(file_path:str,obj: object)-> None:
     Save Object
     """
     try:
+        logging.info("Starting the save object method of MainUtils class")
         os.makedirs(os.path.dirname(file_path),exist_ok=True)
         with open(file_path,"wb") as file_obj:
             dill.dump(obj,file_obj)
