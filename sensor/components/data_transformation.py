@@ -38,6 +38,10 @@ class DataTransformation:
 
     @classmethod
     def get_data_transformer_object(cls)-> Pipeline:
+        """
+        :return: Pipeline object to transform dataset
+        """
+        logging.info("Entered get_data_transformer_object method of DataTransformation class")
         try:
             robut_scaler = RobustScaler()
             simple_imputer= SimpleImputer(strategy="constant",fill_value=0)
@@ -47,6 +51,7 @@ class DataTransformation:
                 ("RobustScaler",robut_scaler) #keep every feature in same range and handle outlier
                 ]
             )
+            logging.info("Exited get_data_transformer_object method of DataTransformation class")
             return preprocessor
         except Exception as e:
             raise SensorException(e,sys)
@@ -99,8 +104,8 @@ class DataTransformation:
             save_numpy_array_data(self.data_transformation_config.transformed_test_file_path,array=test_arr)
 
             # save preprocessing object
-            print(f"preprocess :{preprocessor}")
-            # save_object(self.data_transformation_config.transformed_object_file_path,preprocessor)
+            print(f"preprocessor type :{type(preprocessor)}")
+            save_object(self.data_transformation_config.transformed_object_file_path,preprocessor)
             
             # return the artifact
             data_transformation_artifact = DataTransformationArtifact(
