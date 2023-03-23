@@ -60,20 +60,22 @@ class DataTransformation:
             test_file_path= self.data_validation_artifact.test_file_path
 
             # Reading data from train and test file location
+            print(f"train file path {train_file_path}")
             train_dataframe = DataTransformation.read_data(train_file_path)
+            print(f"test file path {test_file_path}")
             test_dataframe = DataTransformation.read_data(test_file_path)
     
 
             # Create train input feature df by dropping target column
+            target_feature_train_df = train_dataframe[TARGET_COLUMN]
+            target_feature_train_df = target_feature_train_df.replace(TargetValueMapping().to_dict())
             input_feature_train_df  = train_dataframe.drop(columns= [TARGET_COLUMN],axis= 1)
-            target_feature_train_df = train_dataframe.TARGET_COLUMN
-            target_feature_train_df = target_feature_train_df.replace(TargetValueMapping.to_dict())
-
+            
             # Create test input feature df by dropping target column
+            target_feature_test_df = test_dataframe[TARGET_COLUMN]
+            target_feature_test_df = target_feature_test_df.replace(TargetValueMapping().to_dict())
             input_feature_test_df  = test_dataframe.drop(columns= [TARGET_COLUMN],axis= 1)
-            target_feature_test_df = test_dataframe.TARGET_COLUMN
-            target_feature_test_df = target_feature_test_df.replace(TargetValueMapping.to_dict())
-
+            
             #transformation of Training and Test input feature
             preprocessor = self.get_data_transformer_object()
             preprocessor_object = preprocessor.fit(input_feature_train_df)
@@ -91,12 +93,14 @@ class DataTransformation:
             test_arr = np.c_[input_feature_test_final,np.array(target_feature_test_final)]
 
             # save train numpy array data
+            print(f"self.data_transformation_config.transformed_train_file_path:   {self.data_transformation_config.transformed_train_file_path}")
             save_numpy_array_data(self.data_transformation_config.transformed_train_file_path,array=train_arr)
             # save test numpy array data
             save_numpy_array_data(self.data_transformation_config.transformed_test_file_path,array=test_arr)
 
             # save preprocessing object
-            save_object(self.data_transformation_config.transformed_object_file_path,preprocessor)
+            print(f"preprocess :{preprocessor}")
+            # save_object(self.data_transformation_config.transformed_object_file_path,preprocessor)
             
             # return the artifact
             data_transformation_artifact = DataTransformationArtifact(
