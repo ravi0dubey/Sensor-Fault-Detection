@@ -22,6 +22,8 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 ![image](https://user-images.githubusercontent.com/38419795/226071961-d9678667-cf9e-4410-a9d4-6a4293f4ae1e.png)\n
 #### Data Validation 
 ![image](https://user-images.githubusercontent.com/38419795/226494010-ac475551-5159-46ce-84c2-a3e2904e249b.png)
+#### Data Transformation
+![image](https://user-images.githubusercontent.com/38419795/227364255-1657eb48-628a-4c22-a073-1d21fa3c37c9.png)
 
 
 
