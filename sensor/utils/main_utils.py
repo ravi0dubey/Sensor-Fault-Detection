@@ -42,6 +42,7 @@ def save_numpy_array_data(file_path: str, array: np.array):
     except Exception as e:
         raise SensorException(e, sys) from e
     
+
 def load_numpy_array_data(file_path:str)-> np.array:
     """
     Load numpy array data from file
@@ -60,11 +61,20 @@ def save_object(file_path: str, obj: object) -> None:
     try:
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "wb") as file_obj:
-            print("inside open")
-            print(f"obj: {obj}")
-            print(f"file_obj: {file_obj}")
             dill.dump(obj, file_obj)
         logging.info("Exited the save_object method of MainUtils class")
     except Exception as e:
         raise SensorException(e, sys) from e
 
+
+def load_object(file_path: str) -> object:
+    logging.info("Entered the load_object method of MainUtils class")
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f"The file: {file_path} does not exists")
+        with open(file_path, "wb") as file_obj:
+            dill.load( file_obj)
+            logging.info("Exited the Load_object method of MainUtils class")
+            return dill       
+    except Exception as e:
+        raise SensorException(e, sys) from e

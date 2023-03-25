@@ -30,4 +30,5 @@ class ClassficationMetricArtifact:
 @dataclass
 class ModelTrainerArtifact:
     trained_model_file_path: str
-    metric_artifact: ClassficationMetricArtifact
+    train_metric_artifact: ClassficationMetricArtifact
+    test_metric_artifact: ClassficationMetricArtifact

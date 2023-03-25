@@ -107,6 +107,7 @@ class DataTransformation:
             print(f"preprocessor type :{type(preprocessor)}")
             save_object(self.data_transformation_config.transformed_object_file_path,preprocessor)
             
+            
             # return the artifact
             data_transformation_artifact = DataTransformationArtifact(
                 transformed_object_file_path=self.data_transformation_config.transformed_object_file_path,
