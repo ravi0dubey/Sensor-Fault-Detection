@@ -1,3 +1,8 @@
+import os,sys
+from sensor.exception import SensorException
+from sensor.constant.training_pipeline import SAVED_MODEL_DIR,MODEL_FILE_NAME
+
+
 class TargetValueMapping:
     """
     This class convert or transform the Target value which is of category class
@@ -38,3 +43,39 @@ class SensorModel:
             return y_hat
         except Exception as e:
             raise e
+        
+
+ # Class Model Resolver gets the model path and fetches the latest model stored over there       
+class ModelResolver:
+    def __init__(self,model_dir=SAVED_MODEL_DIR):
+        try:
+            self.model_dir = model_dir
+        except Exception as e:
+            raise SensorException(e,sys)
+        
+    def get_best_model_path(self,)-> str:
+        try:
+            timestamps= list(map(int,os.listdir(self.model_dir)))
+            latest_timestamp = max(timestamps)
+            latest_model_path = os.path.join(self.model_dir,f"{latest_timestamp}",MODEL_FILE_NAME)
+            return latest_model_path
+        except Exception as e:
+            raise SensorException(e,sys)
+    
+    """
+    To verify if saved_model folder exists and then we check if timestamp folder exists 
+    and then within timestamp folder does model exists in it
+    """
+    def is_model_exists(self) -> bool:
+        try:
+            if not os.path.exists(self.model_dir):
+                return False
+            timestamps = os.listdir(self.model_dir)
+            if len(timestamps)==0:
+                return False          
+            latest_model_path= self.get_best_model_path()
+            if not os.path.exists(latest_model_path):
+                return False
+            return True
+        except Exception as e:
+            raise SensorException(e,sys)

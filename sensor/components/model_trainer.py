@@ -70,7 +70,12 @@ class ModelTrainer:
             if diff_f1_metric > self.model_trainer_config.overfitting_underfitting_threshold:
                 raise Exception("Model is not good, try doing more experimentation")
             
-            # Load preprocessor object from Transfformed artifact
+            
+            """
+            Load preprocessor object from Transformed artifact and save it together with our Trained model 
+            So that when we need to do prediction, Preprocessor object will be used for data transformation
+            while trained model will be used to predict the value using the predict function
+            """
             preprocessor_obj = load_object(file_path= self.data_transformation_artifact.transformed_object_file_path)
             model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
             os.makedirs(model_dir_path,exist_ok= True)
