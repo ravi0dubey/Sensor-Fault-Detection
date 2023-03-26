@@ -23,6 +23,7 @@ class ModelPusher:
         
     def initiate_model_pusher(self) -> ModelPusherArtifact:
         try:
+            logging.info("Inside Model Pusher initiate")
             trained_model_path = self.model_evaluation_artifact.train_model_metric_artifact
 
             # creating model pusher dir to save the model
@@ -34,6 +35,11 @@ class ModelPusher:
             saved_model_file_path = self.model_pusher_config.saved_model_path
             os.makedirs(os.path.dirname(saved_model_file_path),exist_ok=True)
             shutil.copy(src= trained_model_path,dst=saved_model_file_path)
+
+            #prepare the artifact
+            model_pusher_artifact= ModelPusherArtifact( saved_model_path=saved_model_file_path,model_file_path=model_file_path   )
+            logging.info(f"Model Pusher artifact {model_pusher_artifact}")
+            return model_pusher_artifact 
 
         except Exception as e:
             raise SensorException(e,sys)
