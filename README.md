@@ -26,7 +26,7 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 ![image](https://user-images.githubusercontent.com/38419795/227364255-1657eb48-628a-4c22-a073-1d21fa3c37c9.png)
 
 #### Model Evaluation
-Models will be stored in timestamp folder 
+Models will be stored in timestamp folder \n
 ![image](https://user-images.githubusercontent.com/38419795/227789015-c9e7434a-5a76-4977-b53a-9929721f8231.png)
 
 
