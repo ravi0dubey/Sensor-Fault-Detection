@@ -2,7 +2,7 @@ import sys,os
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from xgboost import XGBClassfier
+from xgboost import XGBClassifier
 
 from sensor.entity.artifact_entity import DataValidationArtifact,DataTransformationArtifact,ModelTrainerArtifact
 from sensor.entity.config_entity import DataTransformationConfig,ModelTrainerConfig
@@ -33,7 +33,7 @@ class ModelTrainer:
         """
         try:
             logging.info("Inside Model Training")
-            xgb_model= XGBClassfier()
+            xgb_model= XGBClassifier()
             xgb_model.fit(x_train,y_train)
             logging.info("Exiting Model Training")
             return xgb_model
@@ -43,9 +43,13 @@ class ModelTrainer:
 
     def initiate_model_trainer(self)-> ModelTrainerArtifact:
         try:
-            # loading Training and Test array
-            train_arr= load_numpy_array_data(self.data_transformation_artifact.transformed_train_file_path)
-            test_arr= load_numpy_array_data(self.data_transformation_artifact.transformed_test_file_path)
+            
+            train_file_path = self.data_transformation_artifact.transformed_train_file_path
+            test_file_path = self.data_transformation_artifact.transformed_test_file_path
+            #loading training array and testing array
+            train_arr = load_numpy_array_data(train_file_path)
+            test_arr = load_numpy_array_data(test_file_path)
+
             x_train,y_train,x_test,y_test=(
                 train_arr[::-1],
                 train_arr[:-1],

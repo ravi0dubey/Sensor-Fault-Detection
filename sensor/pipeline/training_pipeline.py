@@ -60,11 +60,13 @@ class TrainPipeline:
         except Exception as e:
             raise SensorException(e,sys)
     
-    def start_model_evaluation(self,model_trainer_artifact:ModelTrainerArtifact) -> ModelEvaluationArtifact:
+    def start_model_evaluation(self,data_validation_artifact:DataValidationArtifact,model_trainer_artifact:ModelTrainerArtifact) -> ModelEvaluationArtifact:
         try:
             logging.info("Model Evaluation started") 
             self.model_evaluation_config = ModelEvaluationConfig(training_pipeline_config=self.training_pipeline_config)
-            model_evaluation = ModelEvaluation(model_trainer_artifact=model_trainer_artifact,model_evaluation_config=self.model_evaluation_config)
+            model_evaluation = ModelEvaluation(data_validation_artifact= data_validation_artifact,
+                                               model_trainer_artifact=model_trainer_artifact,
+                                               model_evaluation_config=self.model_evaluation_config)
             model_evaluation_artifact= model_evaluation.initiate_model_evaluation()
             logging.info(f"Model Evaluation complete and artifact :{model_evaluation_artifact}") 
         except Exception as e:
@@ -88,6 +90,8 @@ class TrainPipeline:
            data_transformation_artifact:DataTransformationArtifact = self.start_data_transformation(data_validation_artifact=data_validation_artifact)
            model_trainer_artifact:ModelTrainerArtifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
            model_evaluation_artifact:ModelEvaluationArtifact= self.start_model_evaluation(model_trainer_artifact=model_trainer_artifact)
+           if not model_evaluation_artifact.is_model_accepted:
+               raise Exception("Trained model is not better than the best model")
            model_pusher_artifact:ModelPusherArtifact = self.start_model_push(model_evaluation_artifact=model_evaluation_artifact)
 
         except Exception as e:
