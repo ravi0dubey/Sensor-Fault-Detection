@@ -21,6 +21,11 @@ class ModelTrainer:
         """
         try:
             self.data_transformation_artifact = data_transformation_artifact
+            print(f"self.data.transformation_artifact: {self.data_transformation_artifact}")
+            print(f"data_transformation_artifact1.transformed_train_file_path : {data_transformation_artifact.transformed_train_file_path}")
+            print(f"data_transformation_artifact1.transformed_test_file_path : {data_transformation_artifact.transformed_test_file_path}")
+            print(f"data_transformation_artifact1.transformed_object_file_path: {data_transformation_artifact.transformed_object_file_path}")
+            
             self.model_trainer_config= model_trainer_config 
         except Exception as e:
             raise SensorException(e,sys)
@@ -46,6 +51,8 @@ class ModelTrainer:
             
             train_file_path = self.data_transformation_artifact.transformed_train_file_path
             test_file_path = self.data_transformation_artifact.transformed_test_file_path
+            print(f"train_file_path : {train_file_path}")
+            print(f"test_file_path : {test_file_path}")
             #loading training array and testing array
             train_arr = load_numpy_array_data(train_file_path)
             test_arr = load_numpy_array_data(test_file_path)

@@ -53,7 +53,7 @@ class TrainPipeline:
     def start_model_trainer(self,data_transformation_artifact:DataTransformationArtifact,)->ModelTrainerArtifact:
         try:
             logging.info("Model Training started") 
-            self.model_trainer_config= DataTransformationConfig(training_pipeline_config=self.training_pipeline_config)
+            self.model_trainer_config= ModelTrainerConfig(training_pipeline_config=self.training_pipeline_config)
             model_trainer = ModelTrainer(data_transformation_artifact=data_transformation_artifact,model_trainer_config=self.model_trainer_config)
             model_trainer_artifact=model_trainer.initiate_model_trainer()
             logging.info(f"Model Training Complete and artifact : {model_trainer_artifact}")
