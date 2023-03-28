@@ -61,8 +61,8 @@ class DataTransformation:
         try:
             logging.info("Inside Data Transformation")
             validation_error_message = " "
-            train_file_path= self.data_validation_artifact.trained_file_path
-            test_file_path= self.data_validation_artifact.test_file_path
+            train_file_path= self.data_validation_artifact.valid_train_file_path
+            test_file_path= self.data_validation_artifact.valid_test_file_path
 
             # Reading data from train and test file location
             print(f"train file path {train_file_path}")

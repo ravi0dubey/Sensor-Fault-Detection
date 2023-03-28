@@ -8,8 +8,9 @@ from sensor.constant.training_pipeline import TARGET_COLUMN
 from sensor.entity.artifact_entity import DataValidationArtifact,ModelTrainerArtifact,ModelEvaluationArtifact
 from sensor.entity.config_entity import DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig
 from sensor.ml.metric.classification_metric import get_classfication_score
-from sensor.ml.model.estimator import SensorModel,ModelResolver
+from sensor.ml.model.estimator import SensorModel,ModelResolver,TargetValueMapping
 from sensor.utils.main_utils import save_object,load_object,write_yaml_file
+
 
 class ModelEvaluation:
     def __init__(self,data_validation_artifact:DataValidationArtifact, 
@@ -22,6 +23,7 @@ class ModelEvaluation:
         """
         try:
             self.data_validation_artifact = data_validation_artifact
+            print(f"data_validation_artifact: {data_validation_artifact}")
             self.model_trainer_artifact   = model_trainer_artifact
             self.model_evaluation_config  = model_evaluation_config 
         except Exception as e:
@@ -36,6 +38,8 @@ class ModelEvaluation:
             train_df = pd.read_csv(valid_train_file_path)
             test_df  = pd.read_csv(valid_test_file_path)
             df= pd.concat([train_df,test_df])
+            y_true = df[TARGET_COLUMN]
+            y_true.replace(TargetValueMapping().to_dict,inplace=True)
             # Loading trained model
             train_model_file_path = self.model_trainer_artifact.trained_model_file_path            
             model_resolver = ModelResolver()
@@ -69,7 +73,7 @@ class ModelEvaluation:
 
             # If Metric value of Trained model is greater than Latest existing model metric by changed threshold value
             # then we will accept the training model else we will reject it
-            changed_accuracy = trained_metric-latest_metric
+            changed_accuracy = trained_metric.f1_score - latest_metric.f1_score
             
             if  changed_accuracy >= self.model_evaluation_config.changed_threshold:
                 model_accepted = True
