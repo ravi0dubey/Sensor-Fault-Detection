@@ -24,6 +24,7 @@ class ModelEvaluation:
         try:
             self.data_validation_artifact = data_validation_artifact
             print(f"data_validation_artifact: {data_validation_artifact}")
+            data_validation_artifact.valid_train_file_path
             self.model_trainer_artifact   = model_trainer_artifact
             self.model_evaluation_config  = model_evaluation_config 
         except Exception as e:
@@ -38,8 +39,7 @@ class ModelEvaluation:
             train_df = pd.read_csv(valid_train_file_path)
             test_df  = pd.read_csv(valid_test_file_path)
             df= pd.concat([train_df,test_df])
-            y_true = df[TARGET_COLUMN]
-            y_true.replace(TargetValueMapping().to_dict,inplace=True)
+            y_true = df[TARGET_COLUMN].replace(TargetValueMapping().to_dict,inplace=True)
             # Loading trained model
             train_model_file_path = self.model_trainer_artifact.trained_model_file_path            
             model_resolver = ModelResolver()
