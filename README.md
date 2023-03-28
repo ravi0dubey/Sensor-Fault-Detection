@@ -46,6 +46,9 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 Models will be stored in timestamp folder \n
 ![image](https://user-images.githubusercontent.com/38419795/227789015-c9e7434a-5a76-4977-b53a-9929721f8231.png)
 
+#### Model Pusher
+![image](https://user-images.githubusercontent.com/38419795/228371846-a0b9b46f-4d56-476e-9acf-d22425ac55dc.png)
+
 
 ## Data Drift Detection
 ![image](https://user-images.githubusercontent.com/38419795/226199171-c98ae16f-5007-484e-b5f9-5b3d3e73cc92.png)
