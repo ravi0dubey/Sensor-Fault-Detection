@@ -41,7 +41,7 @@ class ModelEvaluation:
             df= pd.concat([train_df,test_df])
             logging.info(f"df[TARGET_COLUMN]: {df[TARGET_COLUMN]}")
 
-            y_true = df[TARGET_COLUMN]
+            y_true_value = df[TARGET_COLUMN]
             # .replace(TargetValueMapping().to_dict,inplace=True)
             df.drop(TARGET_COLUMN,axis=1,inplace=True)
             # Loading trained model
@@ -65,7 +65,7 @@ class ModelEvaluation:
             train_model = load_object(train_model_file_path)
             latest_model_path= model_resolver.get_best_model_path()
             latest_model = load_object(latest_model_path)
-            y_true_value = df[TARGET_COLUMN]
+        
 
             #Determine the predict values for Trained model and Latest model residing in Saved folder
             y_trained_pred = train_model.predict(df)

@@ -87,9 +87,9 @@ class ModelTrainer:
             while trained model will be used to predict the value using the predict function
             """
             preprocessor_obj = load_object(file_path= self.data_transformation_artifact.transformed_object_file_path)
-            tuccha = self.model_trainer_config.trained_model_file_path
+            model_trained_file_path = self.model_trainer_config.trained_model_file_path
             model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
-            print(f"trained_model_file_path:{tuccha}")
+            print(f"trained_model_file_path:{model_trained_file_path}")
             print(f"model_dir_path: {model_dir_path}")
             os.makedirs(model_dir_path,exist_ok= True)
             sensor_model = SensorModel(preprocessor=preprocessor_obj,model=classification_model)
@@ -99,7 +99,7 @@ class ModelTrainer:
             # save_object(file_path=model_dir_path, obj=sensor_model)
             
             # Model Trainer Artifact
-            model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=model_dir_path,
+            model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=model_trained_file_path ,
                                                           train_metric_artifact= classification_train_metric, 
                                                           test_metric_artifact=classification_test_metric)
             logging.info(f"Model Trainer artifact {model_trainer_artifact}")

@@ -1,5 +1,6 @@
 import os,sys
 from sensor.exception import SensorException
+from sensor.logger import logging
 from sensor.constant.training_pipeline import SAVED_MODEL_DIR,MODEL_FILE_NAME
 
 
@@ -56,8 +57,11 @@ class ModelResolver:
     def get_best_model_path(self,)-> str:
         try:
             timestamps= list(map(int,os.listdir(self.model_dir)))
+            logging.info(f"timestamps : {timestamps}")
             latest_timestamp = max(timestamps)
+            logging.info(f"latest_timestamp : {latest_timestamp}")
             latest_model_path = os.path.join(self.model_dir,f"{latest_timestamp}",MODEL_FILE_NAME)
+            logging.info(f"latest_model_path : {latest_model_path}")
             return latest_model_path
         except Exception as e:
             raise SensorException(e,sys)
@@ -69,12 +73,15 @@ class ModelResolver:
     def is_model_exists(self) -> bool:
         try:
             if not os.path.exists(self.model_dir):
+                logging.info("Path does not exists")
                 return False
             timestamps = os.listdir(self.model_dir)
             if len(timestamps)==0:
+                logging.info("Inside timestamps is zero")
                 return False          
             latest_model_path= self.get_best_model_path()
             if not os.path.exists(latest_model_path):
+                logging.info("Latest model Path does not exists")
                 return False
             return True
         except Exception as e:
