@@ -35,7 +35,7 @@ class ModelEvaluation:
             
             valid_train_file_path = self.data_validation_artifact.valid_train_file_path
             valid_test_file_path = self.data_validation_artifact.valid_test_file_path
-            # Valid trained and test file dataframe
+            # Valid trained and test file dataframegot
             train_df = pd.read_csv(valid_train_file_path)
             test_df  = pd.read_csv(valid_test_file_path)
             df= pd.concat([train_df,test_df])

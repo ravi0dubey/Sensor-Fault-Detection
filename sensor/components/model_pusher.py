@@ -24,12 +24,13 @@ class ModelPusher:
     def initiate_model_pusher(self) -> ModelPusherArtifact:
         try:
             logging.info("Inside Model Pusher initiate")
-            trained_model_path = self.model_evaluation_artifact.trained_model_path
+            trained_model_path = os.path.join(self.model_evaluation_artifact.trained_model_path,"model.pkl")
             logging.info(f"trained_model_path : {trained_model_path}")
+
             # creating model pusher dir to save the model
             model_file_path = self.model_pusher_config.model_file_path
             logging.info(f"model_file_path : {model_file_path}")
-            logging.info(f"trained_model_path : {trained_model_path}")
+
             os.makedirs(os.path.dirname(model_file_path),exist_ok=True)
             shutil.copy(src= trained_model_path,dst=model_file_path)
 
