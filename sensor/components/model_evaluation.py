@@ -39,7 +39,11 @@ class ModelEvaluation:
             train_df = pd.read_csv(valid_train_file_path)
             test_df  = pd.read_csv(valid_test_file_path)
             df= pd.concat([train_df,test_df])
-            y_true = df[TARGET_COLUMN].replace(TargetValueMapping().to_dict,inplace=True)
+            logging.info(f"df[TARGET_COLUMN]: {df[TARGET_COLUMN]}")
+
+            y_true = df[TARGET_COLUMN]
+            # .replace(TargetValueMapping().to_dict,inplace=True)
+            df.drop(TARGET_COLUMN,axis=1,inplace=True)
             # Loading trained model
             train_model_file_path = self.model_trainer_artifact.trained_model_file_path            
             model_resolver = ModelResolver()

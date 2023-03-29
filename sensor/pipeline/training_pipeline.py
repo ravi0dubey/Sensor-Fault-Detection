@@ -83,6 +83,7 @@ class TrainPipeline:
             model_pusher = ModelPusher(model_evaluation_artifact=model_evaluation_artifact,model_pusher_config = self.model_pusher_config)
             model_pusher_artifact = model_pusher.initiate_model_pusher()
             logging.info(f"Model Pushing complete and artifact:{model_pusher_artifact} ")
+            return model_pusher_artifact
         except Exception as e:
             raise SensorException(e,sys)
 
