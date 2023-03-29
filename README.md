@@ -47,7 +47,8 @@ Models will be stored in timestamp folder \n
 ![image](https://user-images.githubusercontent.com/38419795/227789015-c9e7434a-5a76-4977-b53a-9929721f8231.png)
 
 #### Model Pusher
-![image](https://user-images.githubusercontent.com/38419795/228371846-a0b9b46f-4d56-476e-9acf-d22425ac55dc.png)
+![image](https://user-images.githubusercontent.com/38419795/228396989-a72568fa-f190-4694-aa3e-6579f29ccb71.png)
+
 
 
 ## Data Drift Detection
