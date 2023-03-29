@@ -77,7 +77,11 @@ class ModelEvaluation:
 
             # If Metric value of Trained model is greater than Latest existing model metric by changed threshold value
             # then we will accept the training model else we will reject it
-            changed_accuracy = trained_metric.f1_score - latest_metric.f1_score
+        
+            changed_accuracy = round(latest_metric.f1_score - trained_metric.f1_score,3)
+            logging.info(f"trained_metric.f1_score : {trained_metric.f1_score}")
+            logging.info(f"latest_metric.f1_score : {latest_metric.f1_score}")
+            logging.info(f"changed_accuracy: {changed_accuracy}")
             
             if  changed_accuracy >= self.model_evaluation_config.changed_threshold:
                 model_accepted = True
@@ -92,7 +96,7 @@ class ModelEvaluation:
                                                                     best_model_metric_artifact = latest_metric)
             logging.info(f"Model Evaluation artifact {model_evaluation_artifact}")
             # save the report
-            model_eval_report = model_evaluation_artifact.__dict__()
+            model_eval_report = model_evaluation_artifact.__dict__
             write_yaml_file(self.model_evaluation_config.report_file_path,model_eval_report)
             return model_evaluation_artifact    
 
