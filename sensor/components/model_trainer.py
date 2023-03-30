@@ -4,10 +4,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
-from sensor.entity.artifact_entity import DataValidationArtifact,DataTransformationArtifact,ModelTrainerArtifact
-from sensor.entity.config_entity import DataTransformationConfig,ModelTrainerConfig
 from sensor.exception import SensorException
 from sensor.logger import logging
+from sensor.entity.artifact_entity import DataValidationArtifact,DataTransformationArtifact,ModelTrainerArtifact
+from sensor.entity.config_entity import DataTransformationConfig,ModelTrainerConfig
 from sensor.utils.main_utils import load_numpy_array_data
 from sensor.ml.metric.classification_metric import get_classfication_score
 from sensor.ml.model.estimator import SensorModel
