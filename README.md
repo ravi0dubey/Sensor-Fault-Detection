@@ -64,5 +64,7 @@ Models will be stored in timestamp folder \n
 
 
 
+## CI-CD Pipeline
+![image](https://user-images.githubusercontent.com/38419795/229185395-bbe50ebc-f0e2-4ff5-9ad8-6dad2cc4311b.png)
 
 
