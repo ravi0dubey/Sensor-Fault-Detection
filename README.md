@@ -30,10 +30,9 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 #### Data Validation 
 ![image](https://user-images.githubusercontent.com/38419795/226494010-ac475551-5159-46ce-84c2-a3e2904e249b.png)
 
-## Data Validation pipeline
 ![image](https://user-images.githubusercontent.com/38419795/226127381-6ddfd989-76e2-4087-86e8-c1cd0daa846b.png)
 
-![image](https://user-images.githubusercontent.com/38419795/226118592-44360d9b-fcaa-40e3-b4b5-936f7dcd760d.png)
+
 
 #### Data Transformation
 ![image](https://user-images.githubusercontent.com/38419795/227364255-1657eb48-628a-4c22-a073-1d21fa3c37c9.png)
