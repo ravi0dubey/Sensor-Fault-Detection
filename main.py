@@ -14,7 +14,7 @@ from sensor.constant.training_pipeline import SAVED_MODEL_DIR
 from sensor.constant.application import APP_HOST, APP_PORT
 from sensor.ml.model.estimator import ModelResolver,TargetValueMapping
 from sensor.utils.main_utils import load_object
-
+# adding comment line
 # env_file_path="/config/workspace/env.yaml"
 
 # def set_env_variable(env_file_path):
