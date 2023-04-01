@@ -32,6 +32,11 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 
 ![image](https://user-images.githubusercontent.com/38419795/226127381-6ddfd989-76e2-4087-86e8-c1cd0daa846b.png)
 
+#### Docker image in ECR
+![image](https://user-images.githubusercontent.com/38419795/229261088-4caae9b0-5287-46ff-addf-7ffab43122e5.png)
+
+
+
 
 
 #### Data Transformation
