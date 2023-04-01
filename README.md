@@ -32,13 +32,6 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 
 ![image](https://user-images.githubusercontent.com/38419795/226127381-6ddfd989-76e2-4087-86e8-c1cd0daa846b.png)
 
-#### Docker image in ECR
-![image](https://user-images.githubusercontent.com/38419795/229261088-4caae9b0-5287-46ff-addf-7ffab43122e5.png)
-
-
-
-
-
 #### Data Transformation
 ![image](https://user-images.githubusercontent.com/38419795/227364255-1657eb48-628a-4c22-a073-1d21fa3c37c9.png)
 
@@ -70,5 +63,9 @@ Models will be stored in timestamp folder \n
 
 ## CI-CD Pipeline
 ![image](https://user-images.githubusercontent.com/38419795/229185395-bbe50ebc-f0e2-4ff5-9ad8-6dad2cc4311b.png)
+
+
+#### Docker image in ECR
+![image](https://user-images.githubusercontent.com/38419795/229261088-4caae9b0-5287-46ff-addf-7ffab43122e5.png)
 
 
