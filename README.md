@@ -2,6 +2,7 @@
 
 ## Problem Statement
 
+
 The Air Pressure System(APS) is a critical component of a heavy-duty vehicle that uses compressed air to force a piston to provide pressure to the brake pads, slowing down the vehicle.
 It is a Binary Classification problem, in which the affirmative class indicates that the failure was caused by a certain component of the APS, while the negative class indicates that the failure was caused by something else.
 
@@ -31,8 +32,6 @@ Goal is to reduce the cost due to unnecessary repairs. So it is required to mini
 ![image](https://user-images.githubusercontent.com/38419795/226494010-ac475551-5159-46ce-84c2-a3e2904e249b.png)
 
 ![image](https://user-images.githubusercontent.com/38419795/226127381-6ddfd989-76e2-4087-86e8-c1cd0daa846b.png)
-
-
 
 #### Data Transformation
 ![image](https://user-images.githubusercontent.com/38419795/227364255-1657eb48-628a-4c22-a073-1d21fa3c37c9.png)
@@ -65,5 +64,9 @@ Models will be stored in timestamp folder \n
 
 ## CI-CD Pipeline
 ![image](https://user-images.githubusercontent.com/38419795/229185395-bbe50ebc-f0e2-4ff5-9ad8-6dad2cc4311b.png)
+
+
+#### Docker image in ECR
+![image](https://user-images.githubusercontent.com/38419795/229261088-4caae9b0-5287-46ff-addf-7ffab43122e5.png)
 
 
