@@ -29,5 +29,5 @@ setup(
     author="ineuron",
     author_email="Ravi0dubey@gmail.com",
     packages=find_packages(),
-    install_requires= [],
+    install_requires=get_requirements_list(),
 )

@@ -127,19 +127,3 @@ class TrainPipeline:
             TrainPipeline.is_pipeline_running = False  
             raise SensorException(e,sys)
     
-    # def run_pipeline(self):
-    #     try:
-    #         TrainPipeline.is_pipeline_running=True
-    #         data_ingestion_artifact:DataIngestionArtifact = self.start_data_ingestion()
-    #         data_validation_artifact=self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
-    #         data_transformation_artifact = self.start_data_transformation(data_validation_artifact=data_validation_artifact)
-    #         logging.info(f"Data Transformation inside training pipeline and artifact: {data_transformation_artifact}")
-    #         model_trainer_artifact = self.start_model_trainer(data_transformation_artifact)
-    #         model_eval_artifact = self.start_model_evaluation( model_trainer_artifact, data_validation_artifact)
-    #         if not model_eval_artifact.is_model_accepted:
-    #             raise Exception("Trained model is not better than the best model")
-    #         model_pusher_artifact = self.start_model_pusher(model_eval_artifact)
-    #         TrainPipeline.is_pipeline_running=False
-    #     except  Exception as e:
-    #         TrainPipeline.is_pipeline_running=False
-    #         raise  SensorException(e,sys)
