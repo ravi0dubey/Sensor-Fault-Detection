@@ -11,6 +11,33 @@ It is a Binary Classification problem, in which the affirmative class indicates 
 In this project, the focus is to correctly predict the class of dataset to detemine the fault is due to APS or some other system.
 Goal is to reduce the cost due to unnecessary repairs. So it is required to minimize the false predictions
 
+## Tech Stack Used
+Python
+FastAPI
+Machine learning algorithms
+Docker
+MongoDB
+
+## Infrastructure Required.
+AWS S3
+AWS EC2
+AWS ECR
+Git Actions
+Terraform
+
+## How to run?
+Before we run the project, make sure that you are having MongoDB in your local system, with Compass since we are using MongoDB for data storage. You also need AWS account to access the service like S3, ECR and EC2 instances.
+
+## Data Collections
+![image](https://github.com/ravi0dubey/Sensor-Fault-Detection/assets/38419795/fb8bb7d5-e34d-44dd-908e-0f9b429f94f8)
+
+## Project Architecture
+![image](https://github.com/ravi0dubey/Sensor-Fault-Detection/assets/38419795/e6776a8e-27b9-419e-ab7a-f435beee4e01)
+
+## Deployment Architecture
+![image](https://github.com/ravi0dubey/Sensor-Fault-Detection/assets/38419795/637987ee-f192-4968-86b1-9bbc0ff7ddb0)
+
+
 ## Approach while doing the coding
 ![image](https://user-images.githubusercontent.com/38419795/226114307-71505cd5-8bb4-44fb-b0e1-1e28a5b045ec.png)
 1. Define all constants used which will be used under constants folder
