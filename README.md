@@ -12,18 +12,18 @@ In this project, the focus is to correctly predict the class of dataset to detem
 Goal is to reduce the cost due to unnecessary repairs. So it is required to minimize the false predictions
 
 ## Tech Stack Used
-Python
-FastAPI
-Machine learning algorithms
-Docker
-MongoDB
+Python </br>
+FastAPI </br>
+Machine learning algorithms </br>
+Docker </br>
+MongoDB </br>
 
 ## Infrastructure Required.
-AWS S3
-AWS EC2
-AWS ECR
-Git Actions
-Terraform
+AWS S3 </br>
+AWS EC2 </br>
+AWS ECR </br>
+Git Actions </br>
+Terraform </br>
 
 ## How to run?
 Before we run the project, make sure that you are having MongoDB in your local system, with Compass since we are using MongoDB for data storage. You also need AWS account to access the service like S3, ECR and EC2 instances.
