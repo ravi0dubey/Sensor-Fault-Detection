@@ -92,8 +92,17 @@ Models will be stored in timestamp folder \n
 ## CI-CD Pipeline
 ![image](https://user-images.githubusercontent.com/38419795/229185395-bbe50ebc-f0e2-4ff5-9ad8-6dad2cc4311b.png)
 
+# Image of successful CI-CD pipeline deployment
+![image](https://github.com/ravi0dubey/Sensor-Fault-Detection/assets/38419795/56e03363-dcf5-4e7d-9297-571f6df61f75)
+
+![image](https://github.com/ravi0dubey/Sensor-Fault-Detection/assets/38419795/712fc20c-24ff-4d28-952c-7ba492abbe57)
+
+
+
 
 #### Docker image in ECR
-![image](https://user-images.githubusercontent.com/38419795/229261088-4caae9b0-5287-46ff-addf-7ffab43122e5.png)
+
+![image](https://github.com/ravi0dubey/Sensor-Fault-Detection/assets/38419795/9440c21b-b466-4076-8ef8-2034de278b3f)
+
 
 
