@@ -22,5 +22,5 @@ watchfiles==0.17.0
 websockets==10.3
 wincertstore==0.2
 neuro-mf==0.0.5
-apache-airflow
--e . # This will search setup.py file and from there read find_packages() this will help project folder(sendor folder) to be interpreted by python interpreter.
+-e.
+# This will search setup.py file and from there read find_packages() this will help project folder(sendor folder) to be interpreted by python interpreter.
