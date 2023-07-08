@@ -119,7 +119,7 @@ class TrainPipeline:
            if not model_evaluation_artifact.is_model_accepted:
                raise Exception("Trained model is not better than the best model")
            model_pusher_artifact:ModelPusherArtifact = self.start_model_push(model_evaluation_artifact=model_evaluation_artifact)
-           TrainPipeline.is_pipeline_running = False  
+        #    TrainPipeline.is_pipeline_running = False  
            self.sync_artifact_dir_to_s3()
            self.sync_saved_model_dir_to_s3()
         except Exception as e:
